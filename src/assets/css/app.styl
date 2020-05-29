@@ -1,0 +1,262 @@
+ $green= #00b7a3;
+
+*
+  padding 0
+  margin 0
+  outline none
+  
+button
+  border none
+input
+  border 1px solid #eee
+html, body, #app
+  width 100%
+  height 100%
+.nickname
+  line-height 30px
+  width 100%
+  border 1px solid $green
+
+@-webkit-keyframes fColorAni{
+  0%   {
+    color: $green;
+  }
+  50%  {
+    color: #46b0ff;
+  }
+  100%  {
+    color: #333;
+  }
+}
+body
+  background url('assets/images/background.jpg')
+  height: 100%
+  width: 100%
+.dis-flex
+  display flex
+.web-im
+  width 75%
+  height 100%
+  margin:0 auto
+
+  .content
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    box-sizing: border-box;
+    min-width: 0;
+    flex-direction: column;
+    border-left 1px solid #eee
+    .header
+      box-shadow 1px 1px 1px #eee
+      line-height 40px
+      height 40px
+      font-size 24px
+      color: #eee
+      z-index 10
+      background #0A0A0A
+    .body
+      flex 1
+      overflow-y auto
+      box-shadow 1px 1px 1px #eee
+      color: #eee
+      background #676260
+    .footer
+      box-shadow 1px 1px 2px #eee
+      background #676260
+      height 50px
+  .left
+    width 220px
+    border-right 1px solid #eee
+    .aside
+      height 100%
+    .tabbar
+      label
+        flex 1
+        text-align center
+        line-height 40px
+        cursor pointer
+        font-size 16px
+        &.active
+          color $green
+        &:last-child
+          border-left 1px solid #eee
+        &.unread
+          animation fColorAni .3s infinite
+    .user-list
+      top 0
+    .func
+      label
+        flex 1
+        text-align center
+        line-height 50px
+        font-size: 24px
+        color: #eee
+        cursor pointer
+        &:last-child
+          border-left 1px solid #676260
+    .user
+      line-height 40px
+      padding 0 8px
+      border-bottom 1px solid #eee
+      &.offline
+        color #ccc
+      &.online
+        color #333
+      &.ani
+        animation fColorAni .3s 5
+      .tips-num
+        height 18px
+        font-size 12px
+        color #ffffff
+        background $green
+        min-width 20px
+        border-radius 50px
+        display: inline-block;
+        line-height: 18px;
+        text-align center
+      .add-group
+        width 18px
+        height 18px
+        line-height 18px
+        text-align center
+        display inline-block
+        border-radius 100%
+        color $green
+        border 1px solid $green
+        cursor pointer
+  .right
+    flex 1
+    .im-title
+      text-align center
+    .body
+      padding 10px 20px
+    .im-record
+      .join-tips
+        position relative!important
+        display block
+        color #cccccc
+        font-size 15px
+        text-align center
+        width 100%
+        left 0!important
+        transform none!important
+      .li
+        margin-bottom 15px
+        position relative
+        text-align left
+        color #46b0ff
+        &:after
+          content ''
+          display block
+          clear both
+        .message-date
+          font-size 8px
+          color #b9b8b8
+          .m-nickname
+            color #46b0ff
+            font-size 16px
+
+        &.user
+          text-align right
+          color $green
+          .message-date
+            .m-nickname
+              color $green
+              font-size 16px
+
+      .message-box
+        max-width 80%
+        display inline-block
+        word-wrap break-word
+        padding 10px 15px
+        border-radius 13px
+        border 2px #fff solid
+        -moz-border-radius 13px
+        -webkit-border-radius: 13px
+        background #000
+        font 1em "Meiryo", sans-serif
+        font-weight bold
+        letter-spacing 2px
+        
+    .footer
+      input
+        flex 1
+        padding 0 20px
+        font-size 22px
+      button
+        width 100px
+        background $green
+        color #fff
+        font-size 22px
+        cursor pointer
+
+//警告框
+div.my-el-message
+  position absolute
+  height 100%
+  width 100%
+  top 0
+  left 0
+  z-index 4000
+  &.success .my-el-message__group
+    background-image url('assets/images/success.svg')
+  .el-message-cover
+    position fixed
+    height 100%
+    width 100%
+    background #000
+    opacity 0.2
+    top 0
+    left 0
+    z-index 4001
+  .my-el-message__group
+    margin 0
+    background #ffffff url('assets/images/warn.svg') no-repeat 17px center
+    background-size: 20px 20px
+    top 50%
+    border-radius 6px
+    padding 0 40px 0 52px
+    z-index 4002
+    height 60px
+    overflow hidden
+    line-height 60px
+    position fixed
+    min-width 350px
+    left 50%
+    transform translateX(-50%)
+    box-shadow 0 2px 8px rgba(0,0,0,.12), 0 0 6px rgba(0,0,0,.04)
+    animation myshow .2s
+    
+    p
+      margin 0
+      color #333333
+      font-size 14px
+      padding-right 10px
+    .my-el-message-close
+      width 15px
+      height 15px
+      background url('assets/images/close.svg') no-repeat
+      background-size 15px 15px
+      position absolute
+      right 14px
+      top 20px
+      cursor pointer
+  @keyframes myshow
+    from
+      transform scale(0) translateX(-100%)
+    to
+      transform scale(1) translateX(-50%)
+
+
+::-webkit-scrollbar-thumb
+  background-color: #ccc;
+  height: 50px;
+  outline-offset: -2px;
+  outline: 2px solid #fff;
+  -webkit-border-radius: 4px;
+  border: 2px solid #fff;
+
+::-webkit-scrollbar
+  width: 8px;
+  height: 8px;
